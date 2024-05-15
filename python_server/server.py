@@ -58,7 +58,7 @@ async def server():
     app.add_routes([web.get('/', web_handler)])
     runner = web.AppRunner(app)
     await runner.setup()
-    
+
     # Utilize 0.0.0.0 as addr for k8s
     site = web.TCPSite(runner, '0.0.0.0', 8081)
     await site.start()
