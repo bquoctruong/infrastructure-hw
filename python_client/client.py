@@ -1,7 +1,7 @@
 import asyncio
-import websockets
 import random
 import time
+import websockets
 
 # Function client that sends message "Hello, Server!" to server listed in URI
 async def client():

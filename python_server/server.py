@@ -25,7 +25,8 @@ async def websocket_handler(websocket, path):
     finally:
         connected_web_clients.remove(websocket)
 
-# Function web_handler that asynchronously builds index.html and updates it with each new received message
+# Function web_handler that asynchronously builds index.html 
+# and updates it with each new received message
 async def web_handler(request):
     #sub var ws values for docker: host.docker.internal, k8s: localhost
     return web.Response(text='''
@@ -63,3 +64,4 @@ async def server():
 
     # Run both servers indefinitely
     await asyncio.gather(ws_server, asyncio.Future())
+    
