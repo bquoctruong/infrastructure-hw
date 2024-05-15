@@ -16,6 +16,13 @@ spec:
       - name: python-server
         image: ml-hw-python-server:latest
         imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
         ports:
         - containerPort: 8081
         - containerPort: 65432
@@ -59,8 +66,10 @@ spec:
       - name: python-client
         image: ml-hw-python-client:latest
         imagePullPolicy: IfNotPresent
-        env:
-          - name: WEBSOCKET_SERVER_HOST
-            value: "python-server-service"
-          - name: WEBSOCKET_SERVER_PORT
-            value: "65432"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"

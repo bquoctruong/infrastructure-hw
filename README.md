@@ -1,24 +1,23 @@
-# infrastructure-hw
+# README
 
-## Your mission
+This is a README for the ML Infrastructure Homework.
 
-For this assignment, you're going to create the infrastructure for an application with a small set of services.
+# Instructions
 
-- One service needs to broadcast `Hello world` at random intervals. Make the interval anywhere from 1 to 10 seconds, with each the time until the next broadcast each chosen randomly.
+## Windows 10 + WSL2/Chromium Based Browser
 
-- Another service needs to receive the `Hello world` broadcasts.
+### Pre-requisites
+1. Install WSL2 [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+2. Install Docker Desktop [here](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+3. Open a WSL terminal
+4. Install minikube [here](https://minikube.sigs.k8s.io/docs/start/)
 
-- Then a user should be able to view the `Hello world` broadcasts, as they arrive, from a web browser.
+### Startup
+1. `git clone https://github.com/bquoctruong/infrastructure-hw.git`
+2. `cd infrastructure-hw`
+3. `./startup.sh`
+4. Open address displayed in terminal in browser (ex. [default python-server-service  http://127.0.0.1:12345)
 
-### Other requirements
-
-- Use whatever languages and frameworks you want to create the services.
-- We're aiming to just run this application on an engineer's local machine, not the cloud; design your solution for `minikube`
-- Your solution should have the minimum number of manual setup steps necessary.
-- Use any adjacent infrastructure tools you think make for a more elegant solution.
-
-## Submission
-
-- Fork this repository on GitHub. Develop a solution on your fork. Extra points for good git hygiene.
-- Include specific instructions in your README about pre-requisites and setup steps. Another engineer should be able to go from zero to running your solution on their local machine.
-- Either send us the link to your repository (if you make it public) or email us a zipped-up folder.
+### Shutdown
+1. `CTRL + C`
+2. `./shutdown.sh`
