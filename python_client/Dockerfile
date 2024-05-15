@@ -6,5 +6,4 @@ COPY . .
 
 RUN pip install websockets
 
-# Run main.py when the container launches
 CMD ["python", "main.py"]
