@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-server
+  template:
+    metadata:
+      labels:
+        app: python-server
+    spec:
+      containers:
+      - name: python-server
+        image: ml-hw-python-server:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 8081
+        - containerPort: 65432
+        
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-client
+  template:
+    metadata:
+      labels:
+        app: python-client
+    spec:
+      containers:
+      - name: python-client
+        image: ml-hw-python-client:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"

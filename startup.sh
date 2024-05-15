@@ -31,7 +31,7 @@ fi
 
 ./build-dockerfile.sh
 
-kubectl apply -f deployment.yaml
+kubectl apply -k kustomize/overlays/local/
 
 sleep 10
 
