@@ -14,8 +14,7 @@ async def broadcast_message(message):
     websockets.broadcast(connected_web_clients, message)
 
 # Function websocket_handler to append received message to list messages
-async def websocket_handler(websocket, path):
-    global messages, connected_web_clients
+async def websocket_handler(websocket):
     connected_web_clients.add(websocket)
     try:
         async for message in websocket:
