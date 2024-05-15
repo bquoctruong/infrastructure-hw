@@ -23,7 +23,7 @@ while getopts ":h:m" opt; do
     esac
 done
 
-kubectl delete -f deployment.yaml
+kubectl delete -k kustomize/overlays/local/
 
 # Stop minikube if flag is set
 if [ "$minikube" = true ]; then
