@@ -15,9 +15,9 @@ This is a README for the ML Infrastructure Homework.
 ### Startup
 1. `git clone https://github.com/bquoctruong/infrastructure-hw.git`
 2. `cd infrastructure-hw`
-3. `./startup.sh`
+3. `./startup.sh` or `./startup.sh -m` to start/enable minikube
 4. Open address displayed in terminal in browser (ex. [default python-server-service  http://127.0.0.1:12345)
 
 ### Shutdown
 1. `CTRL + C`
-2. `./shutdown.sh`
+2. `./shutdown.sh` or `./shutdown.sh -m` to stop minikube
