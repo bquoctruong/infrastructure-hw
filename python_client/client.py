@@ -1,7 +1,6 @@
 import asyncio
-import websockets
 import random
-import time
+import websockets
 
 # Function client that sends message "Hello, Server!" to server listed in URI
 async def client():
@@ -15,4 +14,4 @@ async def client():
             print(f"Sent: {message}")
 
             # Sleep for random time between 1-10 seconds
-            await asyncio.sleep(random.randint(1, 10))  
+            await asyncio.sleep(random.randint(1, 10))

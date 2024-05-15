@@ -14,8 +14,7 @@ async def broadcast_message(message):
     websockets.broadcast(connected_web_clients, message)
 
 # Function websocket_handler to append received message to list messages
-async def websocket_handler(websocket, path):
-    global messages, connected_web_clients
+async def websocket_handler(websocket):
     connected_web_clients.add(websocket)
     try:
         async for message in websocket:
@@ -25,7 +24,9 @@ async def websocket_handler(websocket, path):
     finally:
         connected_web_clients.remove(websocket)
 
-# Function web_handler that asynchronously builds index.html and updates it with each new received message
+# Function web_handler that asynchronously builds index.html
+# and updates it with each new received message
+# Pylint answer: https://docs.aiohttp.org/en/stable/web_quickstart.html
 async def web_handler(request):
     #sub var ws values for docker: host.docker.internal, k8s: localhost
     return web.Response(text='''
@@ -63,3 +64,4 @@ async def server():
 
     # Run both servers indefinitely
     await asyncio.gather(ws_server, asyncio.Future())
+    
